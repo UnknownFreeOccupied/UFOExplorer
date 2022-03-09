@@ -1,0 +1,78 @@
+<?xml version="1.0" ?>
+<launch>
+	<arg name="map_in" default="/ufomap_mapping_server_node/map"/>
+	<arg name="filename" default=""/>
+	<arg name="map" default="complex_maze"/>
+	<arg name="max_time" default="-1"/>
+	<arg name="max_vel" default="2.0"/>
+	<arg name="start_delay" default="1.0"/>
+
+	<node pkg="ufoexplorer" type="ufoexplorer_node" name="ufoexplorer_graph_node" output="screen" respawn="false" required="true">
+		<remap from="map_in" to="$(arg map_in)"/>
+		<remap from="odom" to="/base_link_ground_truth"/>
+
+		<param name="graph/max_num_neighbors" value="1"/>
+		<param name="graph/max_neighbor_dist" value="1.2"/>
+		<param name="graph/max_edge_length" value="2.0"/>
+
+		<!-- 11 -->
+		<param name="graph/max_exact_tsp" value="0"/>
+
+		<param name="dbscan/eps" value="1"/>
+		<!-- 1 -->
+		<param name="dbscan/min_pts" value="0"/>
+
+		<param name="map/automatic_pruning" value="false"/>
+		<param name="map/occupied_thres" value="0.6"/>
+		<param name="map/free_thres" value="0.5"/>
+
+		<param name="map/collision_depth" value="0"/>
+		<param name="map/gain_depth" value="1"/>
+
+		<!-- Complex Maze -->
+		<rosparam param="map/bbx_min">[-20.0, -20.0, 0.0]</rosparam>
+		<rosparam param="map/bbx_max">[ 20.0,  20.0, 3.0]</rosparam>
+		<param name="map/continue_outside" value="false"/>
+		<param name="explorable_volume" value="4800.0"/>
+
+		<param name="robot/frame_id" value="base_link"/>
+		<param name="robot/radius" value="0.45"/>
+		<param name="robot/height" value="0.2"/>
+
+		<!-- 90 -->
+		<param name="sensor/horizontal_fov" value="80.0" />
+		<!--50 -->
+		<param name="sensor/vertical_fov" value="60.0" />
+		<param name="sensor/range_min" value="1.0" />
+		<!-- 7 -->
+		<param name="sensor/range_max" value="2.0"/>
+
+		<param name="min_gain_thres" value="0.3"/>
+		<param name="max_yaw_diff" value="$(eval 2.0 * 3.1415)"/>
+
+		<param name="start_immediately" value="false"/>
+		<param name="exit_at_complete" value="false"/>
+
+		<param name="verbose" value="false"/>
+		<param name="save_computation_time_to_file" value="true"/>
+		<param name="filename" value="$(arg filename)"/>
+		<param name="max_time" value="$(arg max_time)"/>
+	</node>
+
+	<include file="$(find simulation)/launch/sitl.launch">
+		<arg name="world" default="$(arg map)"/>
+	</include>
+
+	<include file="$(find ufoexplorer)/launch/mapping.launch" />
+
+	<include file="$(find ufoexplorer)/launch/obstacle_avoidance.launch" />
+
+	<include file="$(find ufoexplorer)/launch/path_publisher.launch" />
+
+	<include file="$(find simulation)/launch/arm.launch">
+		<arg name="start_delay" default="$(arg start_delay)" />
+	</include>
+
+	<arg name="run_delay" default="$(eval arg('start_delay') - 1)" />
+	<node pkg="rosservice" type="rosservice" name="run_exploration" launch-prefix="bash -c 'sleep $(arg run_delay); $0 &quot;$@&quot;' " args="call --wait /ufoexplorer_graph_node/run true" />
+</launch>

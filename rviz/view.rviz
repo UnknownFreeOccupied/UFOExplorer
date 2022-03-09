@@ -1,0 +1,1012 @@
+Panels:
+  - Class: rviz/Displays
+    Help Height: 0
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /Global Options1
+        - /TF1/Frames1
+        - /UFOMap1
+        - /UFOMap1/Information1
+        - /UFOMap1/Voxel Rendering1
+        - /UFOMap1/Voxel Rendering1/Occupied1
+        - /UFOExplorer1
+        - /UFOExplorer1/Graph1
+        - /UFOExplorer1/Graph1/Namespaces1
+        - /UFOSLAM1/Map1
+        - /UFOSLAM1/Map1/Information1
+        - /UFOSLAM1/Map1/Voxel Rendering1
+        - /UFOSLAM1/Map1/Occupancy Thresholds1
+      Splitter Ratio: 0.5990179777145386
+    Tree Height: 784
+  - Class: rviz/Selection
+    Name: Selection
+  - Class: rviz/Tool Properties
+    Expanded:
+      - /2D Pose Estimate1
+      - /2D Nav Goal1
+      - /Publish Point1
+    Name: Tool Properties
+    Splitter Ratio: 0.5886790156364441
+  - Class: rviz/Views
+    Expanded:
+      - /Current View1
+    Name: Views
+    Splitter Ratio: 0.6169354915618896
+  - Class: rviz/Time
+    Experimental: true
+    Name: Time
+    SyncMode: 0
+    SyncSource: ""
+Preferences:
+  PromptSaveOnExit: true
+Toolbars:
+  toolButtonStyle: 2
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.5
+      Cell Size: 1
+      Class: rviz/Grid
+      Color: 160; 160; 164
+      Enabled: false
+      Line Style:
+        Line Width: 0.029999999329447746
+        Value: Lines
+      Name: Grid
+      Normal Cell Count: 0
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Plane: XY
+      Plane Cell Count: 10
+      Reference Frame: <Fixed Frame>
+      Value: false
+    - Alpha: 1
+      Class: rviz/Axes
+      Enabled: false
+      Length: 1
+      Name: Axes
+      Radius: 0.10000000149011612
+      Reference Frame: <Fixed Frame>
+      Value: false
+    - Alpha: 1
+      Class: rviz/RobotModel
+      Collision Enabled: false
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        camera_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        imu_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        rotor_0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rotor_1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rotor_2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rotor_3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        teraranger_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+      Name: RobotModel
+      Robot Description: robot_description
+      TF Prefix: ""
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
+    - Class: rviz/TF
+      Enabled: true
+      Frame Timeout: 15
+      Frames:
+        All Enabled: false
+        base_footprint_link:
+          Value: true
+        base_link:
+          Value: true
+        base_link_frd:
+          Value: false
+        base_stabilized_link:
+          Value: true
+        camera_link:
+          Value: false
+        imu_link:
+          Value: false
+        map:
+          Value: false
+        map_ned:
+          Value: false
+        odom:
+          Value: false
+        odom_ned:
+          Value: false
+        rotor_0:
+          Value: false
+        rotor_1:
+          Value: false
+        rotor_2:
+          Value: false
+        rotor_3:
+          Value: false
+        teraranger_link:
+          Value: false
+      Marker Alpha: 1
+      Marker Scale: 2
+      Name: TF
+      Show Arrows: false
+      Show Axes: true
+      Show Names: false
+      Tree:
+        map:
+          base_footprint_link:
+            base_stabilized_link:
+              base_link:
+                base_link_frd:
+                  {}
+                camera_link:
+                  {}
+                imu_link:
+                  {}
+                rotor_0:
+                  {}
+                rotor_1:
+                  {}
+                rotor_2:
+                  {}
+                rotor_3:
+                  {}
+                teraranger_link:
+                  {}
+          map_ned:
+            {}
+      Update Interval: 0
+      Value: true
+    - Class: UFOMap
+      Enabled: true
+      Grid size depth: 8
+      Information:
+        "# Inner Nodes": 256 633
+        "# Leaf Nodes": 1 026 808
+        Resolution: 10 cm
+        Size: 11,75 MiB
+        Type: occupancy_map_color
+      Name: UFOMap
+      Occupancy Thresholds:
+        Free (%): 50
+        Occupied (%): 50
+      Queue Size: 10
+      Topic: /ufomap_mapping_server_node/map
+      Unreliable: false
+      Update Rate (Hz): -1
+      Use BBX:
+        BBX Frame: <Fixed Frame>
+        Maximum:
+          X: 8
+          Y: 16
+          Z: 8
+        Minimum:
+          X: -9
+          Y: 2
+          Z: 0
+        Value: false
+      Use time step:
+        Max time step: 16777216
+        Min time step: 0
+        Value: false
+      Value: true
+      Voxel Rendering:
+        Free:
+          Alpha: 0.009999999776482582
+          Coloring:
+            Color: 0; 255; 0
+            Factor: 0.800000011920929
+            Normalize Range:
+              Max Value: 1
+              Min Value: 0
+              Value: true
+            Value: Fixed
+          Min. Depth: 0
+          Scale: 1
+          Use Semantics:
+            Labels:
+              All:
+                1: true
+                2: true
+                3: true
+                4: true
+                5: true
+                All: true
+                Value: true
+              Value: true
+              cup:
+                1: true
+                2: true
+                All: true
+                Value: true
+              table:
+                3: true
+                4: true
+                5: true
+                All: true
+                Value: true
+            Min. Probability: 0.5
+            Value: false
+          Value: false
+        Occupied:
+          Alpha: 1
+          Coloring:
+            Color: 0; 0; 255
+            Factor: 0.800000011920929
+            Normalize Range:
+              Max Value: 1
+              Min Value: 0
+              Value: true
+            Value: Voxel Color
+          Min. Depth: 0
+          Scale: 1
+          Use Semantics:
+            Labels:
+              All:
+                1: true
+                2: true
+                3: true
+                4: true
+                5: true
+                All: true
+                Value: true
+              Value: true
+              cup:
+                1: true
+                2: true
+                All: true
+                Value: true
+              table:
+                3: true
+                4: true
+                5: true
+                All: true
+                Value: true
+            Min. Probability: 0.5
+            Value: false
+          Value: true
+        Unknown:
+          Alpha: 1
+          Coloring:
+            Color: 0; 0; 255
+            Factor: 0.800000011920929
+            Normalize Range:
+              Max Value: 1
+              Min Value: 0
+              Value: true
+            Value: Fixed
+          Min. Depth: 0
+          Scale: 1
+          Use Semantics:
+            Labels:
+              All:
+                1: true
+                2: true
+                3: true
+                4: true
+                5: true
+                All: true
+                Value: true
+              Value: true
+              cup:
+                1: true
+                2: true
+                All: true
+                Value: true
+              table:
+                3: true
+                4: true
+                5: true
+                All: true
+                Value: true
+            Min. Probability: 0.5
+            Value: false
+          Value: false
+    - Class: rviz/Group
+      Displays:
+        - Alpha: 1
+          Buffer Length: 1
+          Class: rviz/Path
+          Color: 255; 85; 0
+          Enabled: true
+          Head Diameter: 0.30000001192092896
+          Head Length: 0.20000000298023224
+          Length: 0.30000001192092896
+          Line Style: Billboards
+          Line Width: 0.10000000149011612
+          Name: Path
+          Offset:
+            X: 0
+            Y: 0
+            Z: 0
+          Pose Color: 255; 85; 255
+          Pose Style: None
+          Queue Size: 10
+          Radius: 0.029999999329447746
+          Shaft Diameter: 0.10000000149011612
+          Shaft Length: 0.10000000149011612
+          Topic: /collision_avoidance_node/path
+          Unreliable: false
+          Value: true
+        - Alpha: 1
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 10
+            Min Value: -10
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/PointCloud2
+          Color: 255; 0; 0
+          Color Transformer: FlatColor
+          Decay Time: 0
+          Enabled: false
+          Invert Rainbow: false
+          Max Color: 255; 0; 0
+          Min Color: 0; 0; 0
+          Name: Obstacles
+          Position Transformer: XYZ
+          Queue Size: 10
+          Selectable: true
+          Size (Pixels): 3
+          Size (m): 0.10000000149011612
+          Style: Flat Squares
+          Topic: /collision_avoidance_node/obstacles
+          Unreliable: false
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: false
+        - Alpha: 1
+          Class: rviz/PointStamped
+          Color: 255; 255; 0
+          Enabled: true
+          History Length: 1
+          Name: Goal
+          Queue Size: 10
+          Radius: 0.20000000298023224
+          Topic: /collision_avoidance_node/goal
+          Unreliable: false
+          Value: true
+        - Alpha: 1
+          Class: rviz/PointStamped
+          Color: 0; 255; 0
+          Enabled: true
+          History Length: 1
+          Name: Current Setpoint
+          Queue Size: 10
+          Radius: 0.20000000298023224
+          Topic: /collision_avoidance_node/current_setpoint
+          Unreliable: false
+          Value: true
+        - Alpha: 1
+          Class: rviz/PointStamped
+          Color: 255; 170; 0
+          Enabled: true
+          History Length: 1
+          Name: Subgoal
+          Queue Size: 10
+          Radius: 0.20000000298023224
+          Topic: /collision_avoidance_node/subgoal
+          Unreliable: false
+          Value: true
+        - Class: rviz/MarkerArray
+          Enabled: true
+          Marker Topic: /collision_avoidance_node/points_of_interest
+          Name: Points of Interest
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: true
+      Enabled: true
+      Name: Collision Avoidance
+    - Class: rviz/Group
+      Displays:
+        - Class: rviz/MarkerArray
+          Enabled: true
+          Marker Topic: /ufoexplorer_graph_node/graph
+          Name: Graph
+          Namespaces:
+            clusters: false
+            edges: true
+            gain: true
+            vertices: false
+            yaw: false
+          Queue Size: 100
+          Value: true
+        - Alpha: 1
+          Buffer Length: 1
+          Class: rviz/Path
+          Color: 25; 255; 0
+          Enabled: true
+          Head Diameter: 0.30000001192092896
+          Head Length: 0.20000000298023224
+          Length: 0.30000001192092896
+          Line Style: Billboards
+          Line Width: 0.10000000149011612
+          Name: Trajectory
+          Offset:
+            X: 0
+            Y: 0
+            Z: 0
+          Pose Color: 255; 85; 255
+          Pose Style: None
+          Queue Size: 10
+          Radius: 0.029999999329447746
+          Shaft Diameter: 0.10000000149011612
+          Shaft Length: 0.10000000149011612
+          Topic: /ufoexplorer_trajectory_node/trajectory
+          Unreliable: false
+          Value: true
+        - Alpha: 1
+          Buffer Length: 1
+          Class: rviz/Path
+          Color: 255; 255; 0
+          Enabled: false
+          Head Diameter: 0.30000001192092896
+          Head Length: 0.20000000298023224
+          Length: 0.30000001192092896
+          Line Style: Billboards
+          Line Width: 0.20000000298023224
+          Name: Global Tour
+          Offset:
+            X: 0
+            Y: 0
+            Z: 0
+          Pose Color: 255; 85; 255
+          Pose Style: None
+          Queue Size: 10
+          Radius: 0.029999999329447746
+          Shaft Diameter: 0.10000000149011612
+          Shaft Length: 0.10000000149011612
+          Topic: /ufoexplorer_graph_node/global_tour
+          Unreliable: false
+          Value: false
+      Enabled: true
+      Name: UFOExplorer
+    - Class: rviz/Group
+      Displays:
+        - Class: octomap_rviz_plugin/OccupancyGrid
+          Enabled: true
+          Max. Height Display: 3.4028234663852886e+38
+          Max. Octree Depth: 16
+          Min. Height Display: -3.4028234663852886e+38
+          Name: Map
+          Octomap Topic: /octomap_full
+          Queue Size: 5
+          Value: true
+          Voxel Alpha: 1
+          Voxel Coloring: Z-Axis
+          Voxel Rendering: Occupied Voxels
+        - Class: rviz/MarkerArray
+          Enabled: true
+          Marker Topic: /aep/mean_markers
+          Name: Mean
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: true
+        - Class: rviz/MarkerArray
+          Enabled: true
+          Marker Topic: /aep/rrtree
+          Name: RRT
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: true
+        - Class: rviz/MarkerArray
+          Enabled: true
+          Marker Topic: /aep/pig_markers
+          Name: PIG
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: true
+        - Class: rviz/Marker
+          Enabled: true
+          Marker Topic: /aep/rrt_path
+          Name: Path
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: true
+      Enabled: false
+      Name: AEP
+    - Class: rviz/Group
+      Displays:
+        - Class: voxblox_rviz_plugin/VoxbloxMesh
+          Enabled: true
+          Name: Map
+          Queue Size: 10
+          Topic: /planner/voxblox_node/mesh
+          Unreliable: false
+          Value: true
+        - Class: rviz/MarkerArray
+          Enabled: true
+          Marker Topic: /planner/trajectory_visualization
+          Name: Trajectory
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: true
+        - Angle Tolerance: 0.10000000149011612
+          Class: rviz/Odometry
+          Covariance:
+            Orientation:
+              Alpha: 0.5
+              Color: 255; 255; 127
+              Color Style: Unique
+              Frame: Local
+              Offset: 1
+              Scale: 1
+              Value: true
+            Position:
+              Alpha: 0.30000001192092896
+              Color: 204; 51; 204
+              Scale: 1
+              Value: true
+            Value: true
+          Enabled: true
+          Keep: 100
+          Name: Odometry
+          Position Tolerance: 0.10000000149011612
+          Queue Size: 10
+          Shape:
+            Alpha: 1
+            Axes Length: 1
+            Axes Radius: 0.10000000149011612
+            Color: 255; 25; 0
+            Head Length: 0.30000001192092896
+            Head Radius: 0.10000000149011612
+            Shaft Length: 1
+            Shaft Radius: 0.05000000074505806
+            Value: Arrow
+          Topic: /firefly/odometry_noise_model/odometry_out
+          Unreliable: false
+          Value: true
+        - Class: rviz/Marker
+          Enabled: true
+          Marker Topic: /firefly/predicted_state
+          Name: Predicted State
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: true
+        - Class: rviz/Marker
+          Enabled: true
+          Marker Topic: /firefly/reference_trajectory
+          Name: Reference Trajectory
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: true
+      Enabled: false
+      Name: IPP
+    - Class: rviz/Group
+      Displays:
+        - Class: UFOMap
+          Enabled: true
+          Grid size depth: 8
+          Information:
+            "# Inner Nodes": 6 257
+            "# Leaf Nodes": 2 336
+            Resolution: 10 cm
+            Size: 164,90 KiB
+            Type: ""
+          Name: Map
+          Occupancy Thresholds:
+            Free (%): 50
+            Occupied (%): 70
+          Queue Size: 10
+          Topic: ""
+          Unreliable: false
+          Update Rate (Hz): -1
+          Use BBX:
+            BBX Frame: <Fixed Frame>
+            Maximum:
+              X: 1000
+              Y: 1000
+              Z: 1000
+            Minimum:
+              X: -1000
+              Y: -1000
+              Z: -1000
+            Value: false
+          Use time step:
+            Max time step: 16777216
+            Min time step: 0
+            Value: false
+          Value: true
+          Voxel Rendering:
+            Free:
+              Alpha: 0.029999999329447746
+              Coloring:
+                Color: 0; 255; 0
+                Factor: 0.800000011920929
+                Normalize Range:
+                  Max Value: 1
+                  Min Value: 0
+                  Value: true
+                Value: Fixed
+              Min. Depth: 0
+              Scale: 1
+              Use Semantics:
+                Labels:
+                  All:
+                    1: true
+                    2: true
+                    3: true
+                    4: true
+                    5: true
+                    All: true
+                    Value: true
+                  Value: true
+                  cup:
+                    1: true
+                    2: true
+                    All: true
+                    Value: true
+                  table:
+                    3: true
+                    4: true
+                    5: true
+                    All: true
+                    Value: true
+                Min. Probability: 0.5
+                Value: false
+              Value: false
+            Occupied:
+              Alpha: 1
+              Coloring:
+                Color: 0; 0; 255
+                Factor: 0.800000011920929
+                Normalize Range:
+                  Max Value: 1
+                  Min Value: 0
+                  Value: true
+                Value: Voxel Color
+              Min. Depth: 0
+              Scale: 1
+              Use Semantics:
+                Labels:
+                  All:
+                    1: true
+                    2: true
+                    3: true
+                    4: true
+                    5: true
+                    All: true
+                    Value: true
+                  Value: true
+                  cup:
+                    1: true
+                    2: true
+                    All: true
+                    Value: true
+                  table:
+                    3: true
+                    4: true
+                    5: true
+                    All: true
+                    Value: true
+                Min. Probability: 0.5
+                Value: false
+              Value: true
+            Unknown:
+              Alpha: 0.029999999329447746
+              Coloring:
+                Color: 255; 255; 255
+                Factor: 0.800000011920929
+                Normalize Range:
+                  Max Value: 1
+                  Min Value: 0
+                  Value: true
+                Value: Fixed
+              Min. Depth: 0
+              Scale: 1
+              Use Semantics:
+                Labels:
+                  All:
+                    1: true
+                    2: true
+                    3: true
+                    4: true
+                    5: true
+                    All: true
+                    Value: true
+                  Value: true
+                  cup:
+                    1: true
+                    2: true
+                    All: true
+                    Value: true
+                  table:
+                    3: true
+                    4: true
+                    5: true
+                    All: true
+                    Value: true
+                Min. Probability: 0.5
+                Value: false
+              Value: false
+        - Alpha: 1
+          Axes Length: 1
+          Axes Radius: 0.10000000149011612
+          Class: rviz/Pose
+          Color: 255; 25; 0
+          Enabled: false
+          Head Length: 0.30000001192092896
+          Head Radius: 0.10000000149011612
+          Name: Pose
+          Queue Size: 10
+          Shaft Length: 1
+          Shaft Radius: 0.05000000074505806
+          Shape: Arrow
+          Topic: /ufoslam_node/pose
+          Unreliable: false
+          Value: false
+        - Alpha: 1
+          Axes Length: 1
+          Axes Radius: 0.10000000149011612
+          Class: rviz/PoseWithCovariance
+          Color: 255; 25; 0
+          Covariance:
+            Orientation:
+              Alpha: 0.5
+              Color: 255; 255; 127
+              Color Style: Unique
+              Frame: Local
+              Offset: 1
+              Scale: 1
+              Value: true
+            Position:
+              Alpha: 0.30000001192092896
+              Color: 204; 51; 204
+              Scale: 1
+              Value: true
+            Value: true
+          Enabled: false
+          Head Length: 0.30000001192092896
+          Head Radius: 0.10000000149011612
+          Name: PoseWithCovariance
+          Queue Size: 10
+          Shaft Length: 1
+          Shaft Radius: 0.05000000074505806
+          Shape: Arrow
+          Topic: /ufoslam_node/pose_cov
+          Unreliable: false
+          Value: false
+      Enabled: false
+      Name: UFOSLAM
+    - Class: rviz/Group
+      Displays:
+        - Alpha: 1
+          Class: rviz/PointStamped
+          Color: 204; 41; 204
+          Enabled: false
+          History Length: 1
+          Name: Pose
+          Queue Size: 10
+          Radius: 0.4000000059604645
+          Topic: /firefly/ground_truth/position
+          Unreliable: false
+          Value: false
+        - Class: rviz/Marker
+          Enabled: true
+          Marker Topic: /firefly/inspectionPath
+          Name: Inspection Path
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: true
+        - Alpha: 1
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 10
+            Min Value: -10
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/PointCloud2
+          Color: 255; 255; 255
+          Color Transformer: Intensity
+          Decay Time: 0
+          Enabled: false
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Min Color: 0; 0; 0
+          Name: Near Obstacle
+          Position Transformer: XYZ
+          Queue Size: 10
+          Selectable: true
+          Size (Pixels): 3
+          Size (m): 0.009999999776482582
+          Style: Flat Squares
+          Topic: /firefly/nbvPlanner/nearest_obstacle
+          Unreliable: false
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: false
+        - Class: octomap_rviz_plugin/OccupancyGrid
+          Enabled: false
+          Max. Height Display: 3.4028234663852886e+38
+          Max. Octree Depth: 16
+          Min. Height Display: -3.4028234663852886e+38
+          Name: Map
+          Octomap Topic: /firefly/nbvPlanner/octomap_full
+          Queue Size: 5
+          Value: false
+          Voxel Alpha: 1
+          Voxel Coloring: Z-Axis
+          Voxel Rendering: Occupied Voxels
+        - Alpha: 1
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 10
+            Min Value: -10
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/PointCloud2
+          Color: 255; 255; 255
+          Color Transformer: RGB8
+          Decay Time: 0
+          Enabled: false
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Min Color: 0; 0; 0
+          Name: Sensor Cloud
+          Position Transformer: XYZ
+          Queue Size: 10
+          Selectable: true
+          Size (Pixels): 3
+          Size (m): 0.009999999776482582
+          Style: Flat Squares
+          Topic: /firefly/vi_sensor/camera_depth/depth/points
+          Unreliable: false
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: false
+      Enabled: false
+      Name: RH-NBVP
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: RGB8
+      Decay Time: 0
+      Enabled: false
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Min Color: 0; 0; 0
+      Name: PointCloud2
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.009999999776482582
+      Style: Flat Squares
+      Topic: /camera/depth/points2
+      Unreliable: false
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: false
+    - Class: rviz/Image
+      Enabled: false
+      Image Topic: /camera/rgb/image_color
+      Max Value: 1
+      Median window: 5
+      Min Value: 0
+      Name: Image
+      Normalize Range: true
+      Queue Size: 2
+      Transport Hint: raw
+      Unreliable: false
+      Value: false
+  Enabled: true
+  Global Options:
+    Background Color: 0; 0; 0
+    Default Light: true
+    Fixed Frame: map
+    Frame Rate: 60
+  Name: root
+  Tools:
+    - Class: rviz/Interact
+      Hide Inactive Objects: true
+    - Class: rviz/MoveCamera
+    - Class: rviz/Select
+    - Class: rviz/FocusCamera
+    - Class: rviz/Measure
+    - Class: rviz/SetInitialPose
+      Theta std deviation: 0.2617993950843811
+      Topic: /initialpose
+      X std deviation: 0.5
+      Y std deviation: 0.5
+    - Class: rviz/SetGoal
+      Topic: /move_base_simple/goal
+    - Class: rviz/PublishPoint
+      Single click: true
+      Topic: /clicked_point
+  Value: true
+  Views:
+    Current:
+      Class: rviz/Orbit
+      Distance: 42.526573181152344
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.05999999865889549
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Field of View: 0.7853981852531433
+      Focal Point:
+        X: 2.8159167766571045
+        Y: -7.784938335418701
+        Z: 2.752596139907837
+      Focal Shape Fixed Size: true
+      Focal Shape Size: 0.05000000074505806
+      Invert Z Axis: false
+      Name: Current View
+      Near Clip Distance: 0.009999999776482582
+      Pitch: 1.5697963237762451
+      Target Frame: <Fixed Frame>
+      Yaw: 4.716886520385742
+    Saved: ~
+Window Geometry:
+  Displays:
+    collapsed: false
+  Height: 1076
+  Hide Left Dock: false
+  Hide Right Dock: true
+  Image:
+    collapsed: false
+  QMainWindow State: 000000ff00000000fd00000004000000000000025300000364fc020000000ffb0000001200530065006c0065006300740069006f006e00000001e10000009b0000008e00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c0061007900730100000058000003640000013800fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000c00430061006d006500720061000000030a000000980000000000000000fb00000006005200470042000000031f000000870000000000000000fb0000000a0049006d006100670065000000026a0000013a0000001c00fffffffb0000000a0041007200750063006f00000003080000009a0000000000000000fb0000000a0049006d00610067006500000002db000000c90000000000000000fb0000000a0049006d00610067006500000002db000000c90000000000000000fb0000000a0049006d00610067006501000001cc000001d8000000000000000000000001000001f20000034cfc0200000009fb0000000a0056006900650077007300000000580000034c000000f400fffffffb0000000e0055006e006b006e006f0077006e0000000156000000ca0000000000000000fb00000018005300650065006e00200075006e006b006e006f0077006e000000022a000000b30000000000000000fb00000010004f006300630075007000690065006400000002e7000000bb0000000000000000fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a004400650070007400680000000058000000e50000000000000000fb0000001a0044006500700074006800200055006e006b006e006f0077006e0000000147000001190000000000000000fb000000240044006500700074006800200055006e006b006e006f0077006e0020005300650065006e000000026a0000013c0000000000000000fb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000778000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e100000197000000030000077c0000004afc0100000002fb0000000800540069006d006501000000000000077c0000042700fffffffb0000000800540069006d006501000000000000045000000000000000000000051f0000036400000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  Selection:
+    collapsed: false
+  Time:
+    collapsed: false
+  Tool Properties:
+    collapsed: false
+  Views:
+    collapsed: true
+  Width: 1916
+  X: 4480
+  Y: 0

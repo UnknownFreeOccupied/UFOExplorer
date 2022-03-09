@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<launch>
+	<arg name="robot_frame" default="base_link"/>
+	<arg name="map_frame" default="map"/>
+
+	<node pkg="ufoexplorer" type="trajectory_node" name="ufoexplorer_trajectory_node" output="screen" respawn="true">
+		<param name="source_frame" value="$(arg robot_frame)"/>
+		<param name="target_frame" value="$(arg map_frame)"/>
+		<param name="tf_timeout" value="0.1"/>
+		<param name="rate" value="10"/>
+	</node>
+</launch>

@@ -1,0 +1,271 @@
+<?xml version="1.0" ?>
+<launch>
+	<arg name="rviz" default="false"/>
+
+	<!-- Robot -->
+	<arg name="robot/frame_id" default="base_link"/>
+	<arg name="robot/radius" default="0.25"/>
+	<arg name="robot/height" default="0.1"/>
+
+	<!-- Sensor -->
+	<arg name="sensor/horizontal_fov" default="80.0" />
+	<arg name="sensor/vertical_fov" default="60.0" />
+	<arg name="sensor/range_min" default="0.3" />
+	<arg name="sensor/range_max" default="4.5"/>
+
+	<!-- Bounding box -->
+	<arg name="bbx/min_x" default="-100"/>
+	<arg name="box/min_y" default="-100"/>
+	<arg name="box/min_z" default="0"/>
+	<arg name="box/max_x" default="100"/>
+	<arg name="box/max_y" default="100"/>
+	<arg name="box/max_z" default="3"/>
+
+	<!-- UFOMap -->
+	<arg name="map/resolution" default="0.1"/>
+	<arg name="map/depth_levels" default="16"/>
+	<arg name="map/occupied_thres" default="0.6"/>
+	<arg name="map/free_thres" default="0.5"/>
+	<arg name="map/insert_depth" default="1"/>
+	<arg name="map/clearing_depth" default="$(arg map/insert_depth)"/>
+	<arg name="map/publish_depths" default="4"/>
+	<arg name="map/collision_depth" default="$(arg insert_depth)"/>
+	<arg name="map/gain_depth" default="$(eval arg('collision_depth') + 1)"/>
+
+	<!-- UFOExplorer -->
+	<arg name="explorer/max_num_neighbors" default="1"/>
+	<arg name="explorer/max_neighbor_dist" default="1.0"/>
+	<arg name="explorer/max_edge_lenght" default="1.25"/>
+	<arg name="explorer/global_tour" default="false"/>
+	<arg name="explorer/max_exact_tsp" default="15"/>
+	<arg name="explorer/max_approx_tsp" default="50"/>
+	<arg name="explorer/min_gain_thres" default="0.2"/>
+	<arg name="explorer/max_yaw_diff" default="$(eval 2.0 * 3.1415)"/>
+	<arg name="explorer/autostart" default="false"/>
+	<arg name="explorer/exit_at_complete" default="true"/>
+	<arg name="explorer/verbose" default="true"/>
+	<arg name="explorer/save_to_file" default="true"/>
+
+	<node pkg="ufoexplorer" type="ufoexplorer_node" name="ufoexplorer_graph_node" output="screen" respawn="false" required="true">
+		<remap from="map_in" to="$(arg map_in)"/>
+		<remap from="odom" to="/base_link_ground_truth"/>
+
+		<param name="graph/max_num_neighbors" value="1"/>
+		<param name="graph/max_neighbor_dist" value="1.0"/>
+		<param name="graph/max_edge_length" value="1.25"/>
+
+		<param name="graph/max_exact_tsp" value="0"/>
+
+		<param name="map/automatic_pruning" value="false"/>
+		<param name="map/occupied_thres" value="0.6"/>
+		<param name="map/free_thres" value="0.5"/>
+
+		<param name="map/collision_depth" value="1"/>
+		<param name="map/gain_depth" value="1"/>
+
+
+		<!-- AEP Office -->
+		<!-- <rosparam param="map/bbx_min">[-24, -3, 0.0]</rosparam>
+		<rosparam param="map/bbx_max">[7, 17, 2.0]</rosparam> -->
+		<!-- <rosparam param="map/bbx_min">[-23.3, -2.8, 0.3]</rosparam>
+		<rosparam param="map/bbx_max">[6.3, 16.7, 2.0]</rosparam> -->
+		<!-- Maze -->
+		<rosparam param="map/bbx_min">[-20.1, -20.1, -0.1]</rosparam>
+		<rosparam param="map/bbx_max">[20.1, 20.1, 3.1]</rosparam>
+		<!-- AEP Maze -->
+		<!-- <rosparam param="map/bbx_min">[-15, -10, 0]</rosparam>
+    <rosparam param="map/bbx_max">[15, 10, 2.0]</rosparam> -->
+		<!-- Empty room big -->
+		<!-- <rosparam param="map/bbx_min">[-38.0,  -2.0, 0.01]</rosparam>
+    <rosparam param="map/bbx_max">[2.0,    28,  2.5]</rosparam> -->
+		<!-- Power Plant -->
+		<!-- <rosparam param="map/bbx_min">[-1.0,  -24.0, 0.0]</rosparam>
+    <rosparam param="map/bbx_max">[ 30.0,   7.0, 26.0]</rosparam> -->
+		<!-- FUEL Maze -->
+		<!-- <rosparam param="map/bbx_min">[-50.0,  -50.0, 0.0]</rosparam>
+    <rosparam param="map/bbx_max">[ 50.0,   50.0, 3.0]</rosparam> -->
+
+		<param name="robot/frame_id" value="base_link"/>
+		<param name="robot/radius" value="0.4"/>
+		<param name="robot/height" value="0.2"/>
+
+		<!-- 90 -->
+		<param name="sensor/horizontal_fov" value="80.0" />
+		<!--50 -->
+		<param name="sensor/vertical_fov" value="60.0" />
+		<param name="sensor/range_min" value="1.0" />
+		<!-- 7 -->
+		<param name="sensor/range_max" value="2.0"/>
+
+		<param name="min_gain_thres" value="0.4"/>
+		<param name="max_yaw_diff" value="$(eval 2.0 * 3.1415)"/>
+
+		<param name="max_clusters" value="13"/>
+
+		<param name="exit_at_complete" value="true"/>
+
+		<param name="verbose" value="true"/>
+		<param name="save_computation_time_to_file" value="true"/>
+	</node>
+
+	<node pkg="ufoexplorer" type="trajectory_node" name="ufoexplorer_trajectory_node" output="screen" respawn="true">
+		<param name="source_frame" value="base_link"/>
+		<param name="target_frame" value="map"/>
+		<param name="tf_timeout" value="0.1"/>
+		<param name="rate" value="10"/>
+	</node>
+
+	<node pkg="ufoexplorer" type="evaluation_node" name="ufoexplorer_evaluation_node" output="screen" respawn="false" required="true">
+		<remap from="map_in" to="$(arg map_in)"/>
+
+		<param name="gain_depth" value="1"/>
+		<param name="occupied_thres" value="0.5"/>
+		<param name="free_thres" value="0.5"/>
+		<rosparam param="bbx_min">[-20, -20, 0]</rosparam>
+		<rosparam param="bbx_max">[20, 20, 3]</rosparam>
+	</node>
+
+
+
+
+
+	<node pkg="nodelet" type="nodelet" name="ufoexplorer_nodelet_manager" args="manager" output="screen">
+		<param name="num_worker_threads" value="12" />
+	</node>
+
+	<!-- Mapping -->
+	<node pkg="ufomap_mapping" type="ufomap_mapping_server_node" name="ufomap_mapping_server_node" output="screen" required="true">
+		<remap from="/cloud_in" to="/camera/depth/points2"/>
+
+		<param name="multithreaded" value="true" />
+
+		<param name="resolution" value="$(arg resolution)" />
+		<param name="depth_levels" value="$(arg depth_levels)" />
+		<param name="color_map" value="true"/>
+
+		<param name="insert_depth" value="$(arg insert_depth)"/>
+		<param name="simple_ray_casting" value="true"/>
+		<param name="max_range" value="$(arg max_range)"/>
+
+		<param name="prob_hit" value="0.8"/>
+		<param name="prob_miss" value="0.45"/>
+
+		<param name="clear_robot" value="true"/>
+		<param name="robot_radius" value="$(eval arg('radius') + 0.15)"/>
+		<param name="robot_height" value="$(eval arg('height') + 0.15)"/>
+		<param name="clearing_depth" value="$(arg clearing_depth)"/>
+
+		<param name="compress" value="false"/>
+		<param name="update_part_of_map" value="true"/>
+		<param name="update_rate" value="10.2"/>
+		<param name="publish_depth" value="$(arg publish_depth)"/>
+		<param name="pub_rate" value="0.0"/>
+		<param name="map_queue_size" value="100" />
+	</node>
+
+	<!-- <node pkg="ufomap_mapping" type="ufomap_mapping_server_node" name="ufomap_mapping_server_node2" output="screen" required="true">
+    <remap from="/cloud_in" to="/camera/depth/points2"/>
+
+		<param name="multithreaded" value="true" />
+		
+    <param name="resolution" value="$(arg resolution)" />
+		<param name="depth_levels" value="$(arg depth_levels)" />
+		<param name="color_map" value="true"/>
+
+    <param name="insert_depth" value="$(arg insert_depth)"/>
+    <param name="simple_ray_casting" value="true"/>
+    <param name="max_range" value="$(eval arg('max_range') + 0.5)"/>
+
+    <param name="prob_hit" value="0.8"/>
+    <param name="prob_miss" value="0.45"/>
+
+    <param name="clear_robot" value="true"/>
+    <param name="robot_radius" value="$(eval arg('radius') + 0.15)"/>
+    <param name="robot_height" value="$(eval arg('height') + 0.15)"/>
+    <param name="clearing_depth" value="$(arg clearing_depth)"/>
+
+    <param name="compress" value="false"/>
+    <param name="update_part_of_map" value="true"/>
+    <param name="update_rate" value="5.2"/>
+    <param name="publish_depth" value="$(arg publish_depth)"/>
+    <param name="pub_rate" value="0.0"/>
+    <param name="map_queue_size" value="100" />
+  </node> -->
+
+	<!-- <node pkg="nodelet" type="nodelet" name="exploration_controller" args="load exploration_controller/ExplorationControllerNodelet ufoexplorer_nodelet_manager" output="screen">
+    <remap from="exploration_controller/cmd_velocity" to="/mavros/setpoint_velocity/cmd_vel" />
+    <remap from="exploration_controller/cmd_setpoint" to="/mavros/setpoint_position/local" />
+    <param name="robot_frame_id" value="base_stabilized_link" />
+    <param name="frequency" value="20" />
+  </node> -->
+
+	<!-- <node pkg="nodelet" type="nodelet" name="collision_avoidance_nodelet" args="load collision_avoidance/CollisionAvoidanceNodelet ufoexplorer_nodelet_manager" output="screen" required="true"> -->
+	<node pkg="collision_avoidance" type="collision_avoidance_node" name="collision_avoidance_node" output="screen" required="true">
+		<remap from="map" to="/ufomap_mapping_server_node/map_depth_$(arg collision_depth)" />
+		<remap from="cloud" to="/camera/depth/points" />
+		<remap from="odometry" to="/mavros/local_position/odom" />
+		<remap from="~/control" to="/mavros/setpoint_velocity/cmd_vel" />
+		<remap from="~/path" to="~/path" />
+		<remap from="~/obstacles" to="~/obstacles" />
+		<remap from="move_to" to="move_to" />
+
+		<param name="num_cloud_topics" value="1" />
+
+		<param name="robot_frame_id" value="base_stabilized_link" />
+
+		<!-- Map -->
+		<param name="map_frame_id" value="map"/>
+		<param name="automatic_pruning" value="true"/>
+		<param name="occupied_thres" value="0.5"/>
+		<param name="free_thres" value="0.5"/>
+		<param name="unknown_as_occupied" value="true"/>
+		<param name="map_depth" value="$(arg collision_depth)"/>
+
+		<param name="distance_converged" value="0.4" />
+		<param name="yaw_converged" value="0.1" />
+
+		<param name="frequency" value="20.0" />
+
+		<param name="max_xy_vel" value="2.5" />
+		<param name="max_z_vel" value="2.5" />
+		<param name="max_yaw_rate" value="70.0" />
+		<param name="h_m" value="1.0" />
+
+		<param name="radius" value="$(arg radius)" />
+		<param name="height" value="$(arg height)" />
+		<param name="min_distance_hold" value="1.0" />
+
+		<param name="security_distance" value="1.0" />
+		<param name="epsilon" value="0.1" />
+
+		<param name="polar_size" value="360" />
+
+		<param name="max_times_backwards" value="10" />
+		<param name="max_times_backwards_total" value="1000" />
+		<param name="max_direction_change" value="60" />
+
+		<param name="look_ahead_distance" value="2.0" />
+		<param name="look_forward" value="false" />
+		<param name="move_while_yawing" value="true" />
+	</node>
+
+	<node pkg="nodelet" type="nodelet" name="image_to_points" args="load depth_image_proc/point_cloud_xyzrgb ufoexplorer_nodelet_manager" required="true">
+		<remap from="rgb/camera_info" to="/camera/depth/camera_info" />
+		<remap from="rgb/image_rect_color" to="/camera/rgb/image_raw" />
+		<remap from="depth_registered/image_rect" to="/camera/depth/image_raw2" />
+		<remap from="depth_registered/points" to="/camera/depth/points2" />
+
+		<param name="queue_size" value="100" />
+	</node>
+
+	<node pkg="nodelet" type="nodelet" name="image_maxing" args="load image_maxing/ImageMaxingNodelet ufoexplorer_nodelet_manager" output="screen" required="true">
+		<remap from="input" to="/camera/depth/image_raw" />
+		<remap from="output" to="/camera/depth/image_raw2" />
+
+		<param name="value" value="$(eval arg('max_range') + 1.0)" />
+	</node>
+
+
+	<!-- RViz -->
+	<node pkg="rviz" type="rviz" name="rviz" if="$(arg rviz)" required="false" args="-d $(find ufoexplorer)/rviz/view.rviz"/>
+</launch>

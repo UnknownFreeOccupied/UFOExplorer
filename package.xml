@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>ufoexplorer</name>
+  <version>1.0.0</version>
+  <description>The ufoexplorer package</description>
+
+  <author email="dduberg@kth.se">Daniel Duberg</author>
+  <maintainer email="dduberg@kth.se">Daniel Duberg</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">https://github.com/danielduberg/ufoexplorer</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>actionlib</depend>
+  <depend>actionlib_msgs</depend>
+  <depend>collision_avoidance</depend>
+  <depend>dynamic_reconfigure</depend>
+  <depend>geometry_msgs</depend>
+  <depend>roscpp</depend>
+  <depend>tf2</depend>
+  <depend>tf2_ros</depend>
+  <depend>ufomap_msgs</depend>
+  <depend>ufomap_ros</depend>
+  <depend>visualization_msgs</depend>
+
+  <depend>ufomap</depend>
+  <depend>eigen</depend>
+  <depend>boost</depend>
+
+  <doc_depend>doxygen</doc_depend>
+
+  <export>
+  </export>
+</package>
